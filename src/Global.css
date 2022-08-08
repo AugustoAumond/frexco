@@ -1,0 +1,23 @@
+@import url('https://fonts.googleapis.com/css2?family=Caveat:wght@400;500;600;700&display=swap');
+
+body {
+    margin: 0;
+    box-sizing: border-box;
+    padding: 0px;
+    font-family: 'Caveat', cursive;
+    background: #8080802b;
+}
+
+.primary {
+    color: #82B421;
+}
+
+.secondary {
+    color: #333758;
+    background: #333758;
+}
+
+.terciary {
+    color: #263409;
+    background: #263409;
+}
