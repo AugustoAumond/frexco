@@ -14,8 +14,9 @@ function Products(){
 
     const list = useSelector((state)=>state.list);  
     
-    function Add (list, number){
-        if (number == '' || number == 0){
+    // Adicionar o item no carrinho, fiz uma validação caso o campo estivesse em branco;
+    function Add (list, number){        
+        if (number < 0 || number == 0 ){
             window.alert('Insira a quantidade')
         } else {
             Adicionar(list, number);
@@ -51,7 +52,7 @@ function Products(){
                         </Description> 
 
                         <Button>
-                            <input id={e.name} onChange={((e)=>setNumber(e.currentTarget.value))}/>
+                            <input type='number' id={e.name} onChange={((e)=>setNumber(e.currentTarget.value))}/>
                             <button onClick={(()=> Add(e, number))}>
                                 Adicionar
                             </button>
@@ -143,9 +144,10 @@ align-items: center;
 justify-content: center;
 
     input{
+        input-style: none;
         margin:3px;
         height: 15px;
-        width: 25px;
+        width: 35px;
         color: #82B421;
         border: solid 1px #333758;
         padding: 4px;

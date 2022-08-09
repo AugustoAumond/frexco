@@ -11,6 +11,7 @@ function Cart (props) {
 
     const history = useHistory();
 
+    // Rota para o carrinho;
     function Cart(){
         history.push('/cart')
     }

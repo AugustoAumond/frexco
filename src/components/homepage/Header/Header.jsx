@@ -57,6 +57,7 @@ const Slogam = styled.div`
 
     p {
         color: white;
+        text-align: center;
     }
     
     span {
