@@ -3,6 +3,7 @@ import styled from "styled-components"
 import { useHistory } from "react-router-dom";
 
 import {BsFillCartFill} from 'react-icons/bs'
+import { useEffect } from "react";
 
 
 function Cart (props) {     
@@ -31,12 +32,12 @@ const DivCart = styled.div`
     height: 40px;
     justify-content: flex-end;
     display: flex;
-    }  
+ 
 `
 
 const ButtonCart = styled.button`
     border: gray 1px solid;
-    display: flex;
+    display: ${props => !props.items? 'none' : 'flex'};
     justify-content: center;
     align-items: center;
     background: ${props => !props.items? 'white' : '#263409'};
@@ -45,6 +46,11 @@ const ButtonCart = styled.button`
     width: 150px;
     height: 100%;
     cursor: pointer;
+
+    @media (max-width: 500px){
+        height: 25px;
+        width: 110px;
+    } 
 
     
 
@@ -59,4 +65,5 @@ const ButtonCart = styled.button`
     #cart{
     margin: 5px;
     font-size: 18px;
-    }`
+    }
+`

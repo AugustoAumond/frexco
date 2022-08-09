@@ -18,6 +18,7 @@ export default Header;
 const DivHeader = styled.header`
     display: flex;
     align-items: center;
+    justify-content: center;
     width: 100%;
     height: 80px;
     border: solid 1px #82b42136;
@@ -35,13 +36,19 @@ const Init = styled.div`
     img {
         width: 50%;
         max-width: 300px;
+
+        @media (max-width: 500px){
+            width: 70%;
+        }
     }
+
 `
 
 const Slogam = styled.div`
     display: flex;
     background: #82B421;
     justify-content: center;
+    align-items: center;
     width: 70%;
     height: 100%;
     font-size: 26px;
@@ -53,5 +60,9 @@ const Slogam = styled.div`
     
     span {
         color: #33375899;
+    }
+
+    @media (max-width: 500px){
+        font-size: 20px;
     }
 `

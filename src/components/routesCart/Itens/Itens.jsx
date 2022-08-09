@@ -1,26 +1,30 @@
 import styled from "styled-components";
 import { useEffect, useState } from "react";
 
+import { useHistory } from "react-router-dom";
+
 import TitleItems from "./TitleItems/TitleItems";
 
 import {Desable, Valid} from './Itens.actions';
 
 function Itens(){
     const [number, setNumber] = useState(0);
-    const [valid, setValid] = useState(false)
+    const [valid, setValid] = useState(false);
+
+    const history = useHistory();
 
     const products = JSON.parse(localStorage.getItem('List_products'));
 
     useEffect(()=>{
 
-    },[valid, number])
+    },[valid, number, products])
 
     function Edit(number, valid, index){  
         let produto = products; 
         products.map((e, i)=>{
             if (i === index){
                  if (valid === false){
-                    setNumber(number);
+                    setNumber(e.quantidade);
                     setValid(!valid);
                     Valid(valid, index);
                 } else {
@@ -40,10 +44,20 @@ function Itens(){
         })   
     }
 
-    console.log(number, products);
-
-    function Delete(){
-
+    function Delete(index){
+        let produto = products;
+        produto.map((e, i)=>{
+            if (index === i){
+                produto.splice(index, 1);
+                if (produto.length > 0){
+                   localStorage.setItem('List_products', JSON.stringify(produto)); 
+                } else {
+                    localStorage.removeItem('List_products');
+                    history.push('/')
+                }
+                setNumber(number+1);
+            }
+        })
     }
 
     return(
@@ -53,8 +67,8 @@ function Itens(){
             {products.map((e, index)=>(
                 <Div key={index} index={index}>
                     <ul  id="flexItems">
-                        <li><img src={e.item.photo} alt="" />
-                        
+                        <li>
+                            <img src={e.item.photo} alt="" />
                         </li>
 
                         <li id='quantidade'>
@@ -67,8 +81,10 @@ function Itens(){
                         </li>
                     </ul>
 
-                    <button id={`edit${index}`} onClick={(()=>Edit(number, valid, index))}>Editar</button>
-                    <button id={`delete${index}`} onClick={(()=>Delete())}>Excluir</button>
+                    <div id="divbutton">
+                        <button id={`edit${index}`} onClick={(()=>Edit(number, valid, index))}>Editar</button>
+                        <button id={`delete${index}`} onClick={(()=>Delete(index))}>Excluir</button>
+                    </div>
                 </Div>
             ))}
             
@@ -84,10 +100,11 @@ const DivItens = styled.div`
 const Div = styled.div`
 display: flex;
 align-items: center;
+justify-content: space-between;
 
     #flexItems {
         display: flex;
-        justify-content: space-around;
+        justify-content: space-between;
         align-items: center;
         list-style: none;
         color: #333758;
@@ -95,7 +112,9 @@ align-items: center;
         margin: 20px; 
         
         li {
-            width: 55px;
+            width: 100px;
+            display: flex;
+            justify-content: center;
         }
     }
 
@@ -119,6 +138,13 @@ align-items: center;
     img {
         width: 50px;
         margin-left: -20px;
+    }
+
+    #divbutton {
+        display: flex;
+        justify-content: flex-end;
+        flex-wrap: wrap;
+        min-width: 50px;
     }
 
     button {

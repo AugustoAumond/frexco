@@ -1,10 +1,11 @@
 import { createStore, combineReducers } from "redux";
+import productsReducer from './listCart/products.reducer';
 import listReducer from "./lists/list.reducer";
-import validationReducer from './validation/validation.reducer'
+
 
 const rootReducer = combineReducers({
     list: listReducer,
-    validation: validationReducer,
+    products: productsReducer,
 });
 
 const store = createStore(rootReducer);

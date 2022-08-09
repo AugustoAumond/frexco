@@ -3,12 +3,14 @@ import { useState } from "react";
 
 import {useSelector} from 'react-redux';
 
+import { useHistory } from "react-router-dom";
+
 import {Adicionar} from './Products.action'
 
 function Products(){
     const [number, setNumber] = useState();
 
-    console.log(number);
+    const history = useHistory();
 
     const list = useSelector((state)=>state.list);  
     
@@ -18,7 +20,8 @@ function Products(){
         } else {
             Adicionar(list, number);
             setNumber('');
-        }  
+        } 
+        history.push('/');
     }
 
     return(
