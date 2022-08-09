@@ -14,7 +14,7 @@ function Products(){
 
     const list = useSelector((state)=>state.list);  
     
-    // Adicionar o item no carrinho, fiz uma validação caso o campo estivesse em branco;
+    // Adicionar o item no carrinho, fiz uma validação caso o campo estiver em branco;
     function Add (list, number){        
         if (number < 0 || number == 0 ){
             window.alert('Insira a quantidade')

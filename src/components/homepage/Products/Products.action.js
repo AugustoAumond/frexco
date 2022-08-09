@@ -1,13 +1,15 @@
+//Limpar o imput após selecionar a quantidade
 function ClearInput(item){
     document.querySelector(`#${item.name}`).value = ''; 
 }
 
+// Abrir carrinho /rota do carrinho;
 function ShowCart(){
     document.querySelector('#buttoncart').style.background = '#263409';
     document.querySelector('#buttoncart').style.color = 'white';
 }
 
-
+//Adiciona os items no localStorage para armazenar os dados da aplicação, somar as quantidades se o item ja foi adicionado;
 export function Adicionar(item, quantidade){
     ClearInput(item);
     ShowCart(item);

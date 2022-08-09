@@ -3,8 +3,6 @@ import styled from "styled-components"
 import { useHistory } from "react-router-dom";
 
 import {BsFillCartFill} from 'react-icons/bs'
-import { useEffect } from "react";
-
 
 function Cart (props) {     
     const items = props.items ? '!' : null;

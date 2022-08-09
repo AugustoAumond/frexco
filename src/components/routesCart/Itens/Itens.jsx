@@ -19,6 +19,7 @@ function Itens(){
 
     },[valid, number, products])
 
+    //Pega a posição do item, adiciona o valor da quantidade no input para ser alterada e invalida os demais botões; Após alterado e clicado novamente ele libera os botões e substitui os valores no localStorage;
     function Edit(number, valid, index){  
         let produto = products; 
         products.map((e, i)=>{
@@ -44,6 +45,7 @@ function Itens(){
         })   
     }
 
+    //Pega a posição do item, deleta a posição e adiciona a nova lista sem o item no locaStorage, se for o último item da lista remove o List_product e volta para a página inicial; Utilizei o setNumber para atualizar a página;
     function Delete(index){
         let produto = products;
         produto.map((e, i)=>{
