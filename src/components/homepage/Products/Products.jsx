@@ -16,7 +16,7 @@ function Products(){
     
     // Adicionar o item no carrinho, fiz uma validação caso o campo estiver em branco;
     function Add (list, number){        
-        if (number < 0 || number == 0 ){
+        if (number < 0 || number === 0 || number === '' ){
             window.alert('Insira a quantidade')
         } else {
             Adicionar(list, number);
@@ -126,6 +126,10 @@ const Description = styled.ul`
     #infosUL {
         margin: 5px;
         list-style: square;
+    }
+
+    #nutricion {
+        cursor: pointer;
     }
 
     #nutricion:hover {
