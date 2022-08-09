@@ -22,4 +22,10 @@ const DivTitle = styled.title`
     .primary {
         border-bottom: solid 1px #33375899;
     }
+
+    @media (max-width: 500px){
+        h1 {
+            font-size: 24px;
+        }
+    }
 `

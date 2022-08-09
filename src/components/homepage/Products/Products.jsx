@@ -154,7 +154,7 @@ justify-content: center;
     }
 
     button {
-        font-size: 13px;
+        font-size: 18px;
         color: #82B421;
         font-weight: 700;
         margin:3px;

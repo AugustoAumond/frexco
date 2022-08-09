@@ -98,9 +98,16 @@ const DivItens = styled.div`
 `
 
 const Div = styled.div`
-display: flex;
-align-items: center;
-justify-content: space-between;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 15px;
+    border: solid 1px #82b42142;
+
+    @media (max-width: 500px){
+        flex-direction: column;
+    }
+
 
     #flexItems {
         display: flex;
@@ -112,9 +119,13 @@ justify-content: space-between;
         margin: 20px; 
         
         li {
-            width: 100px;
+            width: 150px;
             display: flex;
             justify-content: center;
+
+            @media (max-width: 500px){
+                font-size: 14px;
+            }
         }
     }
 
@@ -136,7 +147,7 @@ justify-content: space-between;
 
 
     img {
-        width: 50px;
+        width: 60px;
         margin-left: -20px;
     }
 
@@ -149,10 +160,19 @@ justify-content: space-between;
 
     button {
         cursor: pointer;
+        border-radius: 5px;
         width: 90px;
         height: 20px;
         margin: 5px;
         transition: 0.5s;
+        background: #82B421;
+        color: white;
+        border: white;
+
+        @media (max-width: 500px){
+            margin: 10px;
+            width: 75px;
+        }
     }
 
     button:hover {

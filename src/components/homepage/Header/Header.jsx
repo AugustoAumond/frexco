@@ -39,6 +39,7 @@ const Init = styled.div`
 
         @media (max-width: 500px){
             width: 70%;
+            
         }
     }
 
@@ -64,5 +65,6 @@ const Slogam = styled.div`
 
     @media (max-width: 500px){
         font-size: 20px;
+        padding: 5px;
     }
 `
